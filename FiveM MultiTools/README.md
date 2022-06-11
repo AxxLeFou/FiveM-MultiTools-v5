@@ -14,9 +14,10 @@ This program can allow you to: Delete your FiveM cache, clear your ban traces an
 3. Delete all Xbox applications
 4. Start Diamond Spoofer
 5. Start FiveM
-6. Start RedEngine
-7. Start Desudo
-8. Close the program 
+6. Start Steam
+7. Start RedEngine
+8. Start Desudo
+9. Close the program 
 
 **Current status**
 
