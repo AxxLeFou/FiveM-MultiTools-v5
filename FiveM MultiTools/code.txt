@@ -1,0 +1,170 @@
+@echo off
+cls
+color 0A
+title FiveM MultiTools
+
+:question
+echo [1] Delete my FiveM cache
+echo [2] Delete DigitalEntitlements and CitizenFX (clean traces)
+echo [3] Delete all Xbox apps
+echo [4] Start Spoofer
+echo [5] Start FiveM
+echo [6] Start Steam
+echo [7] Start RedEngine
+echo [8] Start Desudo
+echo [9] Close the program
+echo.
+set /p choix=What do you want to do (1/2/3/4/5/6/7/8/9)? :
+
+if /I "%choix%"=="1" (goto :A)
+if /I "%choix%"=="2" (goto :B)
+if /I "%choix%"=="3" (goto :C)
+if /I "%choix%"=="4" (goto :D)
+if /I "%choix%"=="5" (goto :E)
+if /I "%choix%"=="6" (goto :F)
+if /I "%choix%"=="7" (goto :G)
+if /I "%choix%"=="8" (goto :H)
+if /I "%choix%"=="9" (goto :I)
+if /I "%choix%" NEQ 1 (goto :error)
+if /I "%choix%" NEQ 2 (goto :error)
+if /I "%choix%" NEQ 3 (goto :error)
+if /I "%choix%" NEQ 4 (goto :error)
+if /I "%choix%" NEQ 5 (goto :error)
+if /I "%choix%" NEQ 6 (goto :error)
+if /I "%choix%" NEQ 7 (goto :error)
+if /I "%choix%" NEQ 8 (goto :error)
+if /I "%choix%" NEQ 9 (goto :error)
+
+goto question
+
+:A
+echo.
+echo Your cache has been deleted !
+goto choixa
+
+:B
+echo.
+echo DigitalEntitlements and CitizenFX has been deleted !
+goto choixb
+
+:C
+echo.
+echo All Xbox applications have been removed
+echo.
+goto choixx
+
+:D
+echo.
+echo Diamond Spoofer started.. !
+echo.
+timeout 2 >nul
+echo Loading...
+timeout 1 >nul
+goto choixc
+
+:E
+echo.
+echo FiveM started.. !
+echo.
+timeout 2 >nul
+echo Loading...
+timeout 1 >nul
+goto choixfivem
+
+:F
+echo.
+echo Steam started.. !
+echo.
+timeout 2 >nul
+echo Loading...
+timeout 1 >nul
+goto choixd
+
+:G
+echo.
+echo RedEngine started.. !
+echo.
+timeout 2 >nul
+echo Loading...
+timeout 1 >nul
+goto choixe
+
+:H
+echo.
+echo Desudo started.. !
+echo.
+timeout 2 >nul
+echo Loading...
+timeout 1 >nul
+goto choixf
+
+:I
+echo.
+echo Press any key to close
+exit >nul
+
+:error
+echo.
+echo Incorrect number, press the Enter key...
+goto choixerror
+
+:choixa
+cd "%localappdata%"
+cd "FiveM"
+cd "FiveM.app"
+rmdir /s /q crashes
+rmdir /s /q logs
+cd "data"
+rmdir /s /q server-cache
+rmdir /s /q server-cache-priv
+rmdir /s /q cache
+rmdir /s /q nui-storage
+goto end
+
+:choixb
+cd "%localappdata%"
+rmdir /s /q DigitalEntitlements
+cd "%AppData%"
+rmdir /s /q CitizenFX
+goto end
+
+:choixc
+cd "%~dp0\Spoofer"
+start Spoofer.exe
+goto end
+
+:choixd
+cd "%ProgramFiles(X86)%"
+cd "Steam"
+start steam.exe
+goto end
+
+:choixe
+cd "%~dp0\Red"
+start Red.exe
+goto end
+
+:choixf
+cd "%~dp0\Desudo"
+start Desudo.exe
+goto end
+
+:choixfivem
+cd "%localappdata%"
+cd "FiveM"
+start FiveM.exe
+goto end
+
+:choixx
+cd "%~dp0" 
+start XboxDel.exe
+goto end
+
+:choixerror
+goto end
+
+:end
+pause>nul
+cls
+cd "%~dp0" 
+goto question
