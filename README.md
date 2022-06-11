@@ -1,4 +1,4 @@
-# FiveM Tools
+# FiveM MultiTools
 
 **For the people who are having problems.**  
 
